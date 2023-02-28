@@ -118,7 +118,7 @@ function isBoardEmpty(){
     let i = 0;
     while(squareEls[i].textContent===""){
         i++
-        if(i===8){
+        if(i===9){
             return true
         }
     }
