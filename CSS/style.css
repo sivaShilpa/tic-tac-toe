@@ -1,6 +1,8 @@
 html {
     height: 100%;
     width: 100%;
+    /* align-content: center;
+    justify-content: center; */
   }
   
   #board {
@@ -9,10 +11,17 @@ html {
   /* vmin - calculates the percentage of the shortest side of your viewport */ 
     flex-wrap: wrap;
     gap: 1vmin;
+    /* align-content: center; */
   }
   
   .square{
     width: 25vmin;
     height: 25vmin;
-    border: 1px solid lightblue
+    border: 0.5vmin solid lightblue
+  }
+
+  #title{
+    /* align-content: center;
+    align-items: center; */
+
   }
