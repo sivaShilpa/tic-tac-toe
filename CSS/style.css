@@ -17,11 +17,11 @@ html {
   .square{
     width: 25vmin;
     height: 25vmin;
-    border: 0.5vmin solid lightblue
+    border: 0.5vmin solid lightblue;
+    text-align: center;
   }
 
   #title{
-    /* align-content: center;
-    align-items: center; */
+    text-align: center;
 
   }

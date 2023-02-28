@@ -2,7 +2,6 @@
 
 const choices = ["X", "O"]
 
-
 /*----- state variables -----*/
 let player1Choice
 let player2Choice
@@ -10,9 +9,9 @@ let currentPlayer = 0
 
 /*----- cached elements  -----*/
 const boardEl = document.querySelector("#board")
-
 const squareEls = [...document.querySelectorAll(".square")]
 const resetBtn = document.querySelector("#reset")
+let resultEl = document.querySelector("#result")
 
 boardEl.addEventListener('click', handleClick)
 resetBtn.addEventListener('click', handleClick1)
@@ -35,7 +34,7 @@ function handleClick(evt) {
                 currentPlayer++
             }               
         }        
-        // render()
+        checkForWinner()
     }
 }
 
@@ -47,10 +46,11 @@ function handleClick1(evt){
     else{
         squareEls.forEach(function(sqr){
             sqr.textContent = ""
-        });
+        })
     }
+    currentPlayer = 0
 }
-// squareEls.forEach(function(sqr))
+
 
 
 /*----- functions -----*/
@@ -59,6 +59,22 @@ function handleClick1(evt){
     renderScores();
     renderControls();
     renderMessages();
+  }
+
+  function checkForWinner() {
+    if(((squareEls[0].textContent === squareEls[4].textContent) && (squareEls[4].textContent === squareEls[8].textContent) && (squareEls[0].textContent !== "")) ||
+    (squareEls[0].textContent === squareEls[3].textContent) &&( squareEls[3].textContent === squareEls[6].textContent && (squareEls[0].textContent !== "")) ||
+    (squareEls[0].textContent === squareEls[1].textContent) &&( squareEls[1].textContent=== squareEls[2].textContent && (squareEls[0].textContent !== "")) ||
+    (squareEls[1].textContent === squareEls[4].textContent) &&( squareEls[4].textContent=== squareEls[7].textContent && (squareEls[1].textContent !== "")) ||
+    (squareEls[3].textContent === squareEls[4].textContent) &&( squareEls[4].textContent=== squareEls[5].textContent && (squareEls[3].textContent !== "")) ||
+    (squareEls[6].textContent === squareEls[7].textContent) &&( squareEls[7].textContent=== squareEls[8].textContent && (squareEls[6].textContent !== "")) ||
+    (squareEls[2].textContent === squareEls[5].textContent) &&( squareEls[5].textContent=== squareEls[8].textContent && (squareEls[2].textContent !== "")) ||
+    (squareEls[2].textContent === squareEls[4].textContent) &&( squareEls[4].textContent=== squareEls[6].textContent && (squareEls[2].textContent !== ""))){
+        if(currentPlayer === 1){resultEl.textContent = `Player${currentPlayer} wins!!!`}
+        else{resultEl.textContent = `Player${currentPlayer+2} wins!!!`}
+        
+    }
+    
   }
 
 
