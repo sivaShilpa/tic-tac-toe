@@ -1,27 +1,64 @@
 html {
     height: 100%;
     width: 100%;
-    /* align-content: center;
-    justify-content: center; */
   }
-  
+  body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+  }  
+  #title{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: 75px;
+    color: #077674;
+  }
+  #result{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #80500C;
+  }
   #board {
     display: flex;
     width: 80vmin;
   /* vmin - calculates the percentage of the shortest side of your viewport */ 
     flex-wrap: wrap;
     gap: 1vmin;
-    /* align-content: center; */
-  }
-  
+    align-items: center;
+    justify-content: center; 
+    background-color: #4f5a59;
+    padding: 20px;
+    border-radius: 20px;
+    border:0.5vmin solid #b20f63 ;
+  }  
   .square{
+    display: flex;
     width: 25vmin;
     height: 25vmin;
-    border: 0.5vmin solid lightblue;
+    border: 0.5vmin solid #F3AF4F;
     text-align: center;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    font-size: 200px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #b20f63;
   }
-
-  #title{
-    text-align: center;
-
+  #buttons{
+    padding: 20px;
+  }
+  #start, #reset{
+    height: 40px;
+    width: 200px;
+    font-size: large;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #4f5a59;
+    color: #F3AF4F;
+    border: 0.5vmin solid #b20f63;
+    border-radius: 20px;
   }

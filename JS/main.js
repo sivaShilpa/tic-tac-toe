@@ -45,7 +45,13 @@ function handleClick(evt) {
             checkForWinner()
         }
         else{
-            resultEl.textContent = "Click on 'start game' button to start the game."
+            if(isBoardEmpty()){
+                resultEl.textContent = "Click on 'START GAME' button to start the game."
+            }
+            else{
+                resultEl.textContent = "Please reset the game and then click 'START GAME' button to start another round."
+            }
+            
         }
     }
 }
@@ -62,7 +68,7 @@ function handleClick1(evt) {
     }
     currentPlayer = 0
     tieGame = []
-    resultEl.textContent =""
+    resultEl.textContent = ""
     endGame = false
     gameOn = false
 }
@@ -87,23 +93,36 @@ function checkForWinner() {
         if (currentPlayer === 1) {
             resultEl.textContent = `Player${currentPlayer} wins!!! Reset the game.`
             endGame = true
+            gameOn = false
         } else {
             resultEl.textContent = `Player${currentPlayer + 2} wins!!! Reset the game.`
             endGame = true
+            gameOn = false
         }
 
     }
     else {
         if (tieGame.length === 9) {
-            resultEl.textContent = "It is a tie!!!"
+            resultEl.textContent = "It is a tie!!! Reset the game."
             endGame = true
+            gameOn = false
         }
         else {
             resultEl.textContent = `Player${currentPlayer + 1}, it's your turn!!! Put ${choices[currentPlayer]} on the board!`
-
         }
     }
 
+}
+
+function isBoardEmpty(){
+    let i = 0;
+    while(squareEls[i].textContent===""){
+        i++
+        if(i===8){
+            return true
+        }
+    }
+    return false
 }
 
 
